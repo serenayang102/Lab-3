@@ -1,0 +1,44 @@
+:root {
+  --night: #15122b;
+  --dusk: #2a2347;
+  --lamp: #ffd36e;
+  --paper: #efe6f4;
+  --muted: #a99fc0;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; min-height: 100vh;
+  background: var(--night); color: var(--paper);
+  font-family: Georgia, "Times New Roman", serif; line-height: 1.6;
+  display: flex; flex-direction: column; align-items: center; padding: 2rem 1rem 3rem;
+}
+header { text-align: center; max-width: 36rem; }
+h1 { font-size: clamp(1.8rem, 5vw, 2.8rem); margin: 0 0 .4rem; font-weight: 400; letter-spacing: .01em; }
+header p { margin: 0; color: var(--muted); }
+
+#story-picker { display: flex; gap: .75rem; margin: 1.75rem 0 1.25rem; flex-wrap: wrap; justify-content: center; }
+button {
+  font: inherit; cursor: pointer; color: var(--paper);
+  background: transparent; border: 1px solid var(--muted);
+  padding: .5rem 1.1rem; border-radius: 999px;
+}
+button:hover { border-color: var(--lamp); }
+button:focus-visible, #scene:focus-visible { outline: 3px solid var(--lamp); outline-offset: 3px; }
+button:disabled { opacity: .35; cursor: default; border-color: var(--muted); }
+.story-btn.active { background: var(--lamp); color: var(--night); border-color: var(--lamp); }
+
+main { width: 100%; max-width: 44rem; }
+figure { margin: 0; background: var(--dusk); border-radius: 6px; overflow: hidden; }
+#scene { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; cursor: pointer; transition: opacity .25s; }
+#scene.fading { opacity: 0; }
+figcaption { padding: 1rem 1.25rem 1.25rem; min-height: 7.5rem; }
+#stage { color: var(--lamp); font-style: italic; }
+#caption { margin: .25rem 0 0; font-size: 1.15rem; max-width: 60ch; }
+
+.controls { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 1.25rem; }
+#dots { display: flex; gap: .6rem; list-style: none; margin: 0; padding: 0; }
+#dots li { width: .8rem; height: .8rem; border-radius: 50%; border: 1px solid var(--muted); }
+#dots li.on { background: var(--lamp); border-color: var(--lamp); }
+.hint { text-align: center; color: var(--muted); font-size: .9rem; }
+
+@media (prefers-reduced-motion: reduce) { #scene { transition: none; } }

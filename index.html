@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Power of Sequencing</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>The Power of Sequencing</h1>
+    <p>The same three pictures. Change the order and the story changes with it.</p>
+  </header>
+
+  <nav id="story-picker" aria-label="Choose a sequence">
+    <button class="story-btn active" data-story="carCrash">Version 1: Car Crash</button>
+    <button class="story-btn" data-story="fired">Version 2: Fired</button>
+  </nav>
+
+  <main>
+    <figure>
+      <img id="scene" src="" alt="">
+      <figcaption>
+        <span id="stage"></span>
+        <p id="caption"></p>
+      </figcaption>
+    </figure>
+
+    <div class="controls">
+      <button id="prev">Back</button>
+      <ol id="dots" aria-label="Sequence progress"></ol>
+      <button id="next">Next</button>
+    </div>
+    <p class="hint">Click the picture, use the buttons, or press the arrow keys.</p>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
